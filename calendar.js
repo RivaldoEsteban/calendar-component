@@ -1,7 +1,7 @@
 // console.log(date.getDate()); //retorna el dia actual 1 -31
 // console.log(date.getHours()); //retorna la hora en valor entero  0 24
 
-const day1 = document.querySelector(".first-day");
+const day1 = document.getElementById("day1");
 const day2 = document.getElementById("day2");
 const day3 = document.getElementById("day3");
 const day4 = document.getElementById("day4");
@@ -123,24 +123,71 @@ day30.addEventListener("click", () => {
   handleCurrentDay(30);
 });
 
+const date = new Date();
 const day = document.getElementById("day");
 const currentDate = document.getElementById("date");
 const currentHour = document.getElementById("hour");
+
+const noteDate = document.querySelector(".event-title");
+noteDate.textContent = `Día ${date
+  .getDate()
+  .toString()
+  .padStart(2, "00")} de Junio`;
+
+function handleCurrentDay(id) {
+  noteDate.textContent = `Día ${id.toString().padStart(2, "00")} de Junio`;
+}
 
 //metodos
 setInterval(() => {
   const date = new Date(); // retorna la fecha actual
   const dayMonth = date.getDate(); //retorna el dia del mes  1 a 31
-  const weekday = date.getDate(); //retorna el dia de la semana  0-domingo 6-sabado
+  const weekday = date.getDay(); //retorna el dia de la semana  0-domingo 6-sabado
   const month = date.getMonth() + 1; // retorna el mes acuatual donde 0 es enero y 11 diciembre
   const year = date.getFullYear(); //retorna el año actual
   const hours = date.getHours(); // retorna la hora actual
   const minutes = date.getMinutes(); // retorna el minuto actual
   const seconds = date.getSeconds(); //retorna el segundo actual
-  currentHour.textContent = `${hours}:${minutes}:${seconds}`;
+  day.textContent = dayMonth;
+
+  if (hours > 12) {
+    currentHour.textContent = `${hours.toString().padStart(2, "00")}:${minutes
+      .toString()
+      .padStart(2, "00")}:${seconds.toString().padStart(2, "00")} pm`;
+  } else {
+    currentHour.textContent = `${hours.toString().padStart(2, "00")}:${minutes
+      .toString()
+      .padStart(2, "00")}:${seconds.toString().padStart(2, "00")} am`;
+  }
+
+  if (weekday === 0) {
+    return (currentDate.textContent = `Domingo Junio ${year}`);
+  } else if (weekday === 1) {
+    return (currentDate.textContent = `Lunes Junio ${year}`);
+  } else if (weekday === 2) {
+    return (currentDate.textContent = `Martes Junio ${year}`);
+  } else if (weekday === 3) {
+    return (currentDate.textContent = `Miercoles Junio ${year}`);
+  } else if (weekday === 4) {
+    return (currentDate.textContent = `Jueves Junio ${year}`);
+  } else if (weekday === 5) {
+    return (currentDate.textContent = `Viernes Junio ${year}`);
+  } else if (weekday === 6) {
+    return (currentDate.textContent = `Sabado Junio ${year}`);
+  } else {
+    console.log("no identifico el día de la semana");
+  }
 }, 1000);
 
-function handleCurrentDay(id) {
-  day.textContent = id;
-  currentDate.textContent = date.toLocaleDateString();
-}
+const form = document.querySelector("#form");
+const noteContainer = document.getElementById("notes");
+const button = document.getElementById("btn");
+const input = document.getElementById("input");
+
+button.addEventListener("click", (event) => {
+  event.preventDefault();
+  const elementHtml = document.createElement("p");
+  elementHtml.classList.add("nota");
+  elementHtml.textContent = `Agendado: ${input.value}`;
+  noteContainer.appendChild(elementHtml);
+});
