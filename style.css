@@ -222,17 +222,23 @@ h2 {
   #input {
     width: 75%;
   }
-  .calendar-container > * {
-    width: 90%;
+  .calendar-container {
+    height: auto;
+    /* width: 90%; */
+    /* overflow: auto; */
+    gap: 1.5rem;
   }
   .date {
-    height: 33%;
-    overflow: auto;
+    /* height: 33%; */
     margin: 1rem 0;
     padding: 0;
   }
   .calendar {
     border-radius: 8px;
+  }
+  .current-date {
+    height: auto;
+    /* height: 500px; */
   }
   /* .event-title {
     position: sticky;
