@@ -4,4 +4,4 @@
 
 ### En este comopoenente se practico los métodos de Date.prototype.getDay(), con esto pudimos contruir la hora y el día actual , en un formato personalizado.
  
-<img src="image/image-readme.png" alt="imagen para el readme">
+<img src="image/mage-redme.png" alt="imagen para el readme">
