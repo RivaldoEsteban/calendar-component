@@ -1,7 +1,7 @@
 # Calendar-component
 
-##Realizando los proyectos de la página https://leonidasesteban.com/proyectos
+## Realizando los proyectos de la página https://leonidasesteban.com/proyectos
 
 ### En este comopoenente se practico los métodos de Date.prototype.getDay(), con esto pudimos contruir la hora y el día actual , en un formato personalizado.
  
-<img src="image/mage-redme.png" alt="imagen para el readme">
+<img src="image/image-redme.png" alt="imagen para el readme">
